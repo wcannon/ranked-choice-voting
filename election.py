@@ -152,7 +152,7 @@ class Election(object):
   def redistribute_votes_of_candidate(self, candidate_to_remove):
     for vote in self.votes:
       vote.remove_candidate(candidate_to_remove)
-      print vote.choices
+      #print vote.choices
     return
  
   def perform_round(self):
