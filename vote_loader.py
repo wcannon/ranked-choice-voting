@@ -9,7 +9,8 @@ def load_votes(csv_file=CSVFILE):
   '''Read a csv file - each line is a vote, return a list of votes'''
   myvotes = []
   try:
-    with open(csv_file, 'rb') as f:
+    #with open(csv_file, 'rb') as f:
+    with open(csv_file, 'rU') as f:
       reader = csv.reader(f)
       for row in reader:
         newvote = Vote(row)
