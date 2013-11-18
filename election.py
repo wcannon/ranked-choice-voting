@@ -124,8 +124,6 @@ class Election(object):
           self.results_dict[choice] = self.results_dict[choice] + 1
         else:
           self.results_dict[choice] = 1
-    #for candidate,votes in sorted(self.results_dict.items()):
-    #  print "Candidate: %s  Votes: %s" % (candidate,votes)
     return
 
   def print_round_status(self):
@@ -153,9 +151,8 @@ class Election(object):
 
   def redistribute_votes_of_candidate(self, candidate_to_remove):
     for vote in self.votes:
-      if candidate_to_remove == vote.choice():
-        #print "moving choice in a vote"
-        vote.move_to_next_choice()
+      vote.remove_candidate(candidate_to_remove)
+      print vote.choices
     return
  
   def perform_round(self):
@@ -184,11 +181,6 @@ class Election(object):
     self.redistribute_votes_of_candidate(candidate_to_remove)     
     self.tally_votes()
     return
-
-  #def print_results(self):
-  #  for candidate in sorted(self.results_dict.keys()):
-  #    print "Candidate:  %s:  Votes: %s" % (candidate,self.results_dict[candidate])
-  #  return 
 
 
 if __name__ == "__main__":

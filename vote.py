@@ -24,6 +24,14 @@ class Vote(object):
     self.current = self.current + 1
     return 
 
+  def remove_candidate(self, candidate):
+    '''Remove a candidate from all choices'''
+    try:
+      self.choices = [value for value in self.choices if value != candidate]
+    except Exception, e:
+      pass
+    return 
+
 
 if __name__ == "__main__":
   vote_list_1 = [2,3,4]
